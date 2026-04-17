@@ -16,7 +16,7 @@ const RetailInsightDashboard: React.FC = () => {
           {[
             { label: 'Top Category', value: 'Home Office', sub: '42% of queries' },
             { label: 'Most Common Persona', value: 'Professional', sub: 'Increased by 12%' },
-            { label: 'Avg. Budget', value: '$245.00', sub: 'High intent' },
+            { label: 'Avg. Budget', value: '₹19,600', sub: 'High intent' },
             { label: 'Demand Trend', value: 'Sustainable', sub: 'Rising keyword' }
           ].map((item, i) => (
             <div key={i} className="card" style={{ padding: '1.5rem', boxShadow: 'none' }}>

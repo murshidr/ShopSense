@@ -9,7 +9,7 @@ interface SearchAssistantProps {
 const SearchAssistant: React.FC<SearchAssistantProps> = ({ onSearch, isLoading }) => {
   const [prefs, setPrefs] = useState<SearchPreferences>({
     query: '',
-    budget: 500,
+    budget: 25000,
     category: 'All',
     persona: 'Professional'
   });
@@ -24,7 +24,7 @@ const SearchAssistant: React.FC<SearchAssistantProps> = ({ onSearch, isLoading }
   return (
     <div className="section" style={{ paddingTop: '5rem' }}>
       <div className="container">
-        <h1 style={{ fontSize: '3.5rem', marginBottom: '0.5rem', fontWeight: 800 }}>Good morning, Alex.</h1>
+        <h1 style={{ fontSize: '3.5rem', marginBottom: '0.5rem', fontWeight: 800 }}>Good morning.</h1>
         <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', marginBottom: '3rem' }}>Let's find exactly what you need today.</p>
 
         <form onSubmit={handleSubmit} style={{ maxWidth: '900px' }}>
@@ -59,14 +59,14 @@ const SearchAssistant: React.FC<SearchAssistantProps> = ({ onSearch, isLoading }
               <span style={{ fontSize: '0.875rem', color: 'var(--text-muted)', fontWeight: 600 }}>Budget:</span>
               <input 
                 type="range" 
-                min="10" 
-                max="1000" 
-                step="10"
+                min="1000" 
+                max="50000" 
+                step="1000"
                 value={prefs.budget}
                 onChange={(e) => setPrefs({ ...prefs, budget: parseInt(e.target.value) })}
                 style={{ cursor: 'pointer', width: '120px' }}
               />
-              <span style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--primary)' }}>${prefs.budget}</span>
+              <span style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--primary)' }}>₹{prefs.budget.toLocaleString('en-IN')}</span>
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>

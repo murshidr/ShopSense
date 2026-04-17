@@ -41,7 +41,7 @@ export const getRecommendations = (prefs: SearchPreferences): RecommendationResu
     const budgetScore = Math.max(0, 20 - (budgetDiff / prefs.budget) * 20);
     score += budgetScore;
     if (product.price <= prefs.budget) {
-      matchReasons.push(`Well within your $${prefs.budget} budget`);
+      matchReasons.push(`Well within your ₹${prefs.budget.toLocaleString('en-IN')} budget`);
     } else {
       matchReasons.push(`A premium option slightly above your budget`);
     }

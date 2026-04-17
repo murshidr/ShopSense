@@ -100,8 +100,8 @@ const App: React.FC = () => {
       <footer className="section" style={{ borderTop: '1px solid var(--border)', padding: '3rem 0' }}>
         <div className="container flex-between">
           <div>
-            <h3 style={{ fontSize: '1.125rem', fontWeight: 700, marginBottom: '0.5rem' }}>RetailAssistant</h3>
-            <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>© 2024 RetailAssistant. Curated for you.</p>
+            <h3 style={{ fontSize: '1.125rem', fontWeight: 700, marginBottom: '0.5rem' }}>ShopSense</h3>
+            <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>© 2024 ShopSense. Curated for you.</p>
           </div>
           <div style={{ display: 'flex', gap: '2rem', fontSize: '0.8125rem', color: 'var(--text-muted)' }}>
             <span>Privacy</span>

@@ -18,7 +18,7 @@ export const getAIRecommendations = async (prefs: SearchPreferences): Promise<Re
   
   USER PREFERENCES:
   Query: ${prefs.query}
-  Budget: $${prefs.budget}
+  Budget: ₹${prefs.budget}
   Category: ${prefs.category}
   Persona: ${prefs.persona}
   

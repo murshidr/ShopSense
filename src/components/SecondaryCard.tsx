@@ -26,7 +26,7 @@ const SecondaryCard: React.FC<SecondaryCardProps> = ({ result }) => {
           {product.description}
         </p>
         <div className="flex-between">
-          <span style={{ fontSize: '1.125rem', fontWeight: 800 }}>${product.price}</span>
+          <span style={{ fontSize: '1.125rem', fontWeight: 800 }}>₹{product.price.toLocaleString('en-IN')}</span>
           <button style={{ 
             width: '32px', 
             height: '32px', 

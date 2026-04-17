@@ -62,7 +62,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({ result, isBestF
         </div>
 
         <div className="flex-between">
-          <span style={{ fontSize: '1.5rem', fontWeight: 800 }}>${product.price}</span>
+          <span style={{ fontSize: '1.5rem', fontWeight: 800 }}>₹{product.price.toLocaleString('en-IN')}</span>
           <button className="btn btn-primary" style={{ padding: '0.8rem 1.8rem' }}>
             Add to Cart
           </button>
