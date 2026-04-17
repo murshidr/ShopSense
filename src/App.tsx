@@ -4,7 +4,7 @@ import SearchAssistant from './components/SearchAssistant';
 import RecommendationCard from './components/RecommendationCard';
 import SecondaryCard from './components/SecondaryCard';
 import RetailInsightDashboard from './components/RetailInsightDashboard';
-import { getRecommendations, RecommendationResult, SearchPreferences } from './services/recommendationEngine';
+import { getRecommendations, type RecommendationResult, type SearchPreferences } from './services/recommendationEngine';
 import { logShopperQuery } from './services/firebase';
 import { getAIRecommendations } from './services/aiService';
 
@@ -16,10 +16,10 @@ const App: React.FC = () => {
   const handleSearch = async (prefs: SearchPreferences) => {
     setIsLoading(true);
     setHasSearched(true);
-    
+
     // Log query to Firebase
     logShopperQuery(prefs);
-    
+
     try {
       const aiResults = await getAIRecommendations(prefs);
       if (aiResults && aiResults.length > 0) {
@@ -31,9 +31,9 @@ const App: React.FC = () => {
       console.error("Search Error:", error);
       setResults(getRecommendations(prefs));
     }
-    
+
     setIsLoading(false);
-    
+
     setTimeout(() => {
       const resultsEl = document.getElementById('curated-matches');
       if (resultsEl) {
@@ -45,10 +45,10 @@ const App: React.FC = () => {
   return (
     <div className="app">
       <Navbar />
-      
+
       <main>
         <SearchAssistant onSearch={handleSearch} isLoading={isLoading} />
-        
+
         {hasSearched && !isLoading && (
           <div id="curated-matches" className="section" style={{ paddingTop: '2rem' }}>
             <div className="container">

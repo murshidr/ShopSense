@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SearchPreferences } from '../services/recommendationEngine';
+import type { SearchPreferences } from '../services/recommendationEngine';
 
 interface SearchAssistantProps {
   onSearch: (prefs: SearchPreferences) => void;

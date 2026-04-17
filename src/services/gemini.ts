@@ -43,7 +43,7 @@ const simulateAIResponse = (preferences: any) => {
   ];
 };
 
-export const getRetailerInsights = (aggregateData: any) => {
+export const getRetailerInsights = (_aggregateData: any) => {
   // Logic to process aggregate user behavior into actionable insights
   return {
     topStyle: "Eco-Modern",

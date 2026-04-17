@@ -1,6 +1,5 @@
+import { type SearchPreferences, type RecommendationResult, getRecommendations } from './recommendationEngine';
 import { products } from '../data/products';
-import type { Product } from '../data/products';
-import { SearchPreferences, RecommendationResult, getRecommendations } from './recommendationEngine';
 
 const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY;
 const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
@@ -50,18 +49,19 @@ export const getAIRecommendations = async (prefs: SearchPreferences): Promise<Re
     const data = await response.json();
     const content = JSON.parse(data.choices[0].message.content);
     const aiChoices = content.recommendations || content;
-    
+
     return aiChoices.map((choice: any) => {
-      const product = products.find(p => p.id === choice.id) || products[0];
+      const productId = String(choice.id);
+      const product = products.find(p => p.id === productId) || products[0];
       return {
         product,
-        matchScore: choice.matchScore,
-        reason: choice.reason
+        matchScore: Number(choice.matchScore) || 0,
+        reason: String(choice.reason || "Matched based on your preferences")
       };
     }).slice(0, 3);
 
   } catch (error) {
     console.error("Groq AI Error:", error);
-    return getRecommendations(prefs); 
+    return getRecommendations(prefs);
   }
 };

@@ -1,3 +1,4 @@
+// Force HMR update
 import { products } from '../data/products';
 import type { Product } from '../data/products';
 
