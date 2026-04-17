@@ -44,8 +44,6 @@ const App: React.FC = () => {
 
   return (
     <div className="app">
-      <Navbar />
-
       <main>
         <SearchAssistant onSearch={handleSearch} isLoading={isLoading} />
 
