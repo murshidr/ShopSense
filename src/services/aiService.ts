@@ -74,7 +74,7 @@ export const getAIRecommendations = async (prefs: SearchPreferences): Promise<Re
         category: choice.category || prefs.category,
         price: Number(choice.price) || prefs.budget,
         description: choice.description || choice.reason,
-        image: \`https://image.pollinations.ai/prompt/premium%20\${encodeURIComponent(choice.name || prefs.query)}%20product%20photography%20minimalist%20background?width=800&height=600&nologo=true\`,
+        image: `https://image.pollinations.ai/prompt/premium%20${encodeURIComponent(choice.name || prefs.query)}%20product%20photography%20minimalist%20background?width=800&height=600&nologo=true`,
         tags: [prefs.category.toLowerCase(), 'custom'],
         persona: [prefs.persona]
       };

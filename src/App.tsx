@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from './components/Navbar';
 import SearchAssistant from './components/SearchAssistant';
 import RecommendationCard from './components/RecommendationCard';
 import SecondaryCard from './components/SecondaryCard';
