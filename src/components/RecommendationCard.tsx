@@ -1,5 +1,5 @@
 import React from 'react';
-import { RecommendationResult } from '../services/recommendationEngine';
+import type { RecommendationResult } from '../services/recommendationEngine';
 
 interface RecommendationCardProps {
   result: RecommendationResult;

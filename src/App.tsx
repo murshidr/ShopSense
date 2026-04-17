@@ -6,31 +6,40 @@ import SecondaryCard from './components/SecondaryCard';
 import RetailInsightDashboard from './components/RetailInsightDashboard';
 import { getRecommendations, RecommendationResult, SearchPreferences } from './services/recommendationEngine';
 import { logShopperQuery } from './services/firebase';
+import { getAIRecommendations } from './services/aiService';
 
 const App: React.FC = () => {
   const [results, setResults] = useState<RecommendationResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
 
-  const handleSearch = (prefs: SearchPreferences) => {
+  const handleSearch = async (prefs: SearchPreferences) => {
     setIsLoading(true);
     setHasSearched(true);
     
     // Log query to Firebase
     logShopperQuery(prefs);
     
-    // Simulate thinking/AI processing time
+    try {
+      const aiResults = await getAIRecommendations(prefs);
+      if (aiResults && aiResults.length > 0) {
+        setResults(aiResults);
+      } else {
+        setResults(getRecommendations(prefs));
+      }
+    } catch (error) {
+      console.error("Search Error:", error);
+      setResults(getRecommendations(prefs));
+    }
+    
+    setIsLoading(false);
+    
     setTimeout(() => {
-      const recommendations = getRecommendations(prefs);
-      setResults(recommendations);
-      setIsLoading(false);
-      
-      // Scroll to results
       const resultsEl = document.getElementById('curated-matches');
       if (resultsEl) {
         resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    }, 1200);
+    }, 100);
   };
 
   return (

@@ -1,4 +1,5 @@
-import { Product, products } from '../data/products';
+import { products } from '../data/products';
+import type { Product } from '../data/products';
 
 export interface SearchPreferences {
   query: string;
